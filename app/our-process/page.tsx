@@ -94,7 +94,7 @@ export default function Process() {
                                 group-hover:bg-blue-700 group-hover:text-white transition-all duration-500 shadow-inner">
                   {step.icon}
                 </div>
-                <span className="text-5xl font-black text-slate-100 group-hover:text-orange-100 transition-colors">
+                <span className="text-5xl font-black text-slate-400 group-hover:text-orange-100 transition-colors">
                   0{index + 1}
                 </span>
               </div>
