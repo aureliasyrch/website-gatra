@@ -58,7 +58,7 @@ export default function Home() {
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 md:mb-8 leading-[1.1] drop-shadow-md px-2">
             Rise Beyond <br className="hidden sm:block" />
             <span className="bg-linear-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent inline-block">
-              Energy Excellence
+              Energy
             </span>
           </h1>
 
