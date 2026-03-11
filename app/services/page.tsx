@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import Image from "next/image"; // Import Image dari Next.js
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 const services = [
@@ -9,22 +9,8 @@ const services = [
     title: "Genset Installation & Maintenance",
     description: "Comprehensive installation services and periodic maintenance for generator systems to ensure uninterrupted power supply.",
     icon: "⚡",
-    image: "/genset.png", // Pastikan file gambar ada di folder /public/services/
+    image: "/genset.png",
     color: "from-blue-600 to-blue-800"
-  },
-  {
-    title: "Industrial Tank Fabrication",
-    description: "High-precision fabrication of industrial fuel storage tanks (diesel/solar) built with the highest safety standards.",
-    icon: "🛢️",
-    image: "/tanki.png",
-    color: "from-orange-500 to-orange-700"
-  },
-  {
-    title: "Fuel Pump System",
-    description: "Installation and integration of automated fuel pump systems for efficient industrial fuel distribution.",
-    icon: "⛽",
-    image: "/girpam.jpeg",
-    color: "from-blue-700 to-orange-600"
   },
   {
     title: "Mechanical & Electrical Works",
@@ -34,25 +20,39 @@ const services = [
     color: "from-blue-900 to-blue-700"
   },
   {
-    title: "Solar Power System (PLTS)",
-    description: "Implementation of renewable solar energy systems for enhanced energy efficiency and sustainable operations.",
-    icon: "☀️",
-    image: "/solar panel.png",
-    color: "from-orange-400 to-orange-600"
+    title: "Spare Parts & Consumables",
+    description: "Genuine overhaul parts for engine (Mitsubishi, Caterpillar, Cummins, Komatsu, MTU, etc.) and consumable parts like air filters, oil filters, fuel filters, etc.",
+    icon: "🔧",
+    image: "/sperpart.jpeg",
+    color: "from-gray-700 to-gray-900"
   },
   {
     title: "Industrial Piping System",
     description: "Design and installation of industrial piping systems for gas, water, and various liquid fuel transport.",
     icon: "🚿",
-    image: "/piping.jpg",
+    image: "/pipinggatra.png",
     color: "from-blue-800 to-blue-600"
   },
   {
-    title: "Spare Parts & Consumables",
-    description: "Genuine overhaul parts for Mitsubishi, Caterpillar, Cummins, Komatsu, MTU engines, and consumable parts like air, oil, and fuel filters.",
-    icon: "🔧",
-    image: "/sperpart.jpeg",
-    color: "from-gray-700 to-gray-900"
+    title: "Industrial Tank Fabrication",
+    description: "High-precision fabrication of industrial fuel storage tanks built with the highest safety standards.",
+    icon: "🛢️",
+    image: "/tanki.png",
+    color: "from-orange-500 to-orange-700"
+  },
+  {
+    title: "Fuel Pump System",
+    description: "Installation and integration of automated fuel pump systems for efficient industrial fuel distribution.",
+    icon: "⛽",
+    image: "/pump.png",
+    color: "from-blue-700 to-orange-600"
+  },
+  {
+    title: "Solar Power System (PLTS)",
+    description: "Implementation of renewable solar energy systems for enhanced energy efficiency and sustainable operations.",
+    icon: "☀️",
+    image: "/solar panel.png",
+    color: "from-orange-400 to-orange-600"
   }
 ];
 
@@ -86,12 +86,12 @@ export default function Services() {
             >
               {/* Image Container */}
               <div className="relative h-52 w-full overflow-hidden bg-slate-200">
-                {/* Menggunakan Image Placeholder jika gambar belum ada */}
                 <Image 
                   src={service.image} 
                   alt={service.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-w-768px) 100vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
                   <span className="text-white text-xs font-bold uppercase tracking-widest flex items-center gap-2">
