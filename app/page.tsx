@@ -27,7 +27,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen overflow-x-hidden">
+    <div className="flex flex-col min-h-screen overflow-x-hidden bg-white">
       <style jsx global>{`
         .reveal {
           opacity: 0;
@@ -44,10 +44,10 @@ export default function Home() {
       `}</style>
       
       {/* 1. HERO SECTION */}
-      <section className="relative pt-32 pb-16 md:pt-56 md:pb-32 overflow-hidden bg-linear-to-br from-blue-950 via-blue-900 to-blue-800 px-4">
-        <div className="absolute top-0 right-0 w-full md:w-1/2 h-full bg-white/5 md:skew-x-12 md:translate-x-32 z-0" />
-        <div className="absolute bottom-0 left-0 w-48 h-48 md:w-64 md:h-64 bg-orange-500/10 blur-3xl rounded-full z-0" />
-
+      <section className="relative pt-32 pb-16 md:pt-56 md:pb-32 bg-blue-950 px-4">
+        {/* Background Overlay */}
+        <div className="absolute inset-0 bg-linear-to-br from-blue-950 via-blue-900 to-blue-800 z-0" />
+        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 text-center reveal active">
           <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20">
             <span className="text-orange-400 text-xs md:text-sm font-bold tracking-widest uppercase">
@@ -55,11 +55,9 @@ export default function Home() {
             </span>
           </div>
           
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 md:mb-8 leading-[1.1] drop-shadow-md px-2">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 leading-[1.1] drop-shadow-md">
             Rise Beyond <br className="hidden sm:block" />
-            <span className="bg-linear-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent inline-block">
-              Energy
-            </span>
+            <span className="text-orange-500">Energy</span>
           </h1>
 
           <p className="max-w-3xl mx-auto text-blue-100 text-base md:text-xl leading-relaxed mb-10 opacity-90 px-4">
@@ -98,37 +96,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. WORKSHOP SECTION - FIXED IMAGE & HEIGHT */}
-      <section className="py-20 bg-slate-50 overflow-hidden">
+      {/* 3. WORKSHOP SECTION - FIXED */}
+      <section className="py-20 bg-slate-50 relative z-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-center gap-12 md:gap-20">
             
-            {/* Workshop Image */}
+            {/* Bagian Gambar */}
             <div className="w-full lg:w-1/2 reveal">
-              <div className="relative group">
-                <div className="absolute -inset-4 bg-orange-500/10 rounded-[2.5rem] -rotate-2 group-hover:rotate-0 transition-transform duration-500" />
-                {/* PERBAIKAN: Gunakan h-[300px] bukan h-300px */}
-                <div className="relative h-300px md:h-500px w-full rounded-2rem overflow-hidden shadow-2xl border-8 border-white">
-                  <Image 
-                    src="/worksop.png" // Pastikan nama file di /public adalah workshop.png (bukan worksop)
-                    alt="Our Professional Workshop"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-blue-950/40 to-transparent" />
-                </div>
+              <div className="relative w-full shadow-2xl border-8 border-white rounded-2rem overflow-hidden bg-gray-200" 
+                   style={{ height: '450px' }}>
+                <Image 
+                  src="/workshop.png" 
+                  alt="Our Professional Workshop"
+                  fill
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  priority
+                  onError={() => console.error("Gagal memuat /workshop.png")}
+                />
               </div>
             </div>
 
-            {/* Workshop Text Content */}
+            {/* Bagian Teks */}
             <div className="w-full lg:w-1/2 reveal delay-1">
               <h2 className="text-orange-600 font-bold uppercase tracking-widest text-xs md:text-sm mb-4">
                 Facility & Infrastructure
               </h2>
               <h3 className="text-3xl md:text-5xl font-black text-blue-950 mb-6 leading-tight">
-                Inside Our <span className="text-blue-700">Professional Workshop</span>
+                Inside Our <span className="text-blue-700">Workshop</span>
               </h3>
               <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-8 italic">
                 "Our workshop is a center of innovation and precision, equipped with the latest technology to ensure every mechanical and electrical component is processed to the highest safety standards."
@@ -141,7 +135,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="font-bold text-blue-950">Advanced Equipment</h4>
-                    <p className="text-sm text-gray-500">We use state-of-the-art fabrication and monitoring tools for accurate results.</p>
+                    <p className="text-sm text-gray-500">We use state-of-the-art fabrication and monitoring tools.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -150,7 +144,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="font-bold text-blue-950">Safety First Culture</h4>
-                    <p className="text-sm text-gray-500">Strict operational standards to ensure team safety and product quality.</p>
+                    <p className="text-sm text-gray-500">Strict operational standards for team safety and product quality.</p>
                   </div>
                 </div>
               </div>
@@ -189,7 +183,7 @@ export default function Home() {
                 <Zap size={28} />
               </div>
               <h4 className="text-lg md:text-xl font-bold text-blue-950 mb-3">Genset Systems</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">End-to-end installation and professional maintenance for industrial generator sets.</p>
+              <p className="text-gray-600 text-sm leading-relaxed">End-to-end installation and maintenance for industrial generator sets.</p>
             </div>
 
             <div className="bg-white p-8 rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100 hover:border-orange-500 transition-all group reveal delay-2">
@@ -197,7 +191,7 @@ export default function Home() {
                 <Fuel size={28} />
               </div>
               <h4 className="text-lg md:text-xl font-bold text-blue-950 mb-3">Fuel Pump System</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">Integrated fuel management and automated pump systems for industrial efficiency.</p>
+              <p className="text-gray-600 text-sm leading-relaxed">Integrated fuel management and automated pump systems.</p>
             </div>
 
             <div className="bg-white p-8 rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100 hover:border-blue-500 transition-all group reveal delay-3">
@@ -205,7 +199,7 @@ export default function Home() {
                 <Sun size={28} />
               </div>
               <h4 className="text-lg md:text-xl font-bold text-blue-950 mb-3">Solar Technology</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">Transition to sustainable energy with our high-performance PLTS installations.</p>
+              <p className="text-gray-600 text-sm leading-relaxed">Transition to sustainable energy with our high-performance PLTS.</p>
             </div>
           </div>
         </div>
@@ -214,19 +208,19 @@ export default function Home() {
       {/* 5. STATS */}
       <section className="py-16 md:py-20 bg-blue-950 text-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-6 text-center reveal">
-          <div className="transition-transform hover:scale-105">
+          <div>
             <div className="text-3xl md:text-4xl font-black text-orange-500 mb-2">100+</div>
             <div className="text-blue-200 text-[10px] md:text-xs uppercase tracking-widest font-bold">Projects Done</div>
           </div>
-          <div className="transition-transform hover:scale-105">
+          <div>
             <div className="text-3xl md:text-4xl font-black text-orange-500 mb-2">24/7</div>
             <div className="text-blue-200 text-[10px] md:text-xs uppercase tracking-widest font-bold">Support</div>
           </div>
-          <div className="transition-transform hover:scale-105">
+          <div>
             <div className="text-3xl md:text-4xl font-black text-orange-500 mb-2">99.9%</div>
             <div className="text-blue-200 text-[10px] md:text-xs uppercase tracking-widest font-bold">Reliable</div>
           </div>
-          <div className="transition-transform hover:scale-105">
+          <div>
             <div className="text-3xl md:text-4xl font-black text-orange-500 mb-2">High</div>
             <div className="text-blue-200 text-[10px] md:text-xs uppercase tracking-widest font-bold">Safety Standards</div>
           </div>
