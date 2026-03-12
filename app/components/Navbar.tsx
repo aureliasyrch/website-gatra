@@ -46,7 +46,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center gap-2 md:gap-3 group">
               <div className="relative w-10 h-10 md:w-12 md:h-12 drop-shadow-md transition-transform group-hover:scale-110">
                 <Image 
-                  src="/Logo_gatra.png" 
+                  src="/Logo_gatra.PNG" 
                   alt="Logo Gatra" 
                   fill 
                   className="object-contain"
